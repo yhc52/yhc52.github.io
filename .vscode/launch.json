@@ -5,21 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node-terminal",
-            "name": "运行应用",
-            "request": "launch",
-            "command": "pnpm run dev --o",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "name": "Launch Edge",
-            "request": "launch",
-            "type": "msedge",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}",
-            "preLaunchTask": "npm: dev"
-        },
-        {
             "type": "msedge",
             "request": "launch",
             "name": "client: chrome",
