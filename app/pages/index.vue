@@ -4,8 +4,8 @@
       title="Nuxt Starter Template"
       description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
       :links="[{
-        label: 'Get started',
-        to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
+        label: '启动',
+        to: 'test',
         target: '_blank',
         trailingIcon: 'i-lucide-arrow-right',
         size: 'xl'
