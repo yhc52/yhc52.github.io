@@ -95,7 +95,7 @@ const k = ref(new Fraction(1));
             label="乘数："
           />
           <FractionInput
-            v-model="k as Fraction"
+            v-model="k"
             class="w-30"
           />
         </UFieldGroup>
@@ -150,7 +150,7 @@ const k = ref(new Fraction(1));
             label="乘数："
           />
           <FractionInput
-            v-model="k as Fraction"
+            v-model="k"
             class="w-30"
           />
         </UFieldGroup>

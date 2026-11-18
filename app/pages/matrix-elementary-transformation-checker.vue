@@ -77,7 +77,7 @@ onMounted(() => {
       </div>
       <div class="flex flex-col">
         <span class="text-default self-center">编辑初始矩阵：</span>
-        <MatrixEditView v-model="matrix as Matrix" />
+        <MatrixEditView v-model="matrix" />
       </div>
       <div class="flex flex-col gap-y-[8px]">
         <AddOperationControl
