@@ -1,18 +1,18 @@
 <script lang="ts" setup>
-import 'katex/dist/katex.css'
-import katex from 'katex'
+import 'katex/dist/katex.css';
+import katex from 'katex';
 
-const container = useTemplateRef('container')
-const { latex } = defineProps<{ latex: string }>()
-let isLoaded = false
+const container = useTemplateRef('container');
+const { latex } = defineProps<{ latex: string }>();
+let isLoaded = false;
 
 onMounted(() => {
   katex.render(latex, container.value!, {
     throwOnError: false,
     displayMode: true
-  })
-  isLoaded = true
-})
+  });
+  isLoaded = true;
+});
 watch<string>(
   () => latex,
   (newLatex) => {
@@ -20,9 +20,9 @@ watch<string>(
       katex.render(newLatex, container.value!, {
         throwOnError: false,
         displayMode: true
-      })
+      });
     }
-  })
+  });
 </script>
 
 <template>

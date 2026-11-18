@@ -9,10 +9,10 @@ useHead({
   htmlAttrs: {
     lang: 'en'
   }
-})
+});
 
-const title = 'yhc52的个人网站'
-const description = '数学工具，以后还有更多。。。'
+const title = 'yhc52的个人网站';
+const description = '数学工具，以后还有更多。。。';
 
 useSeoMeta({
   title,
@@ -21,7 +21,7 @@ useSeoMeta({
   ogDescription: description,
   ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
   twitterCard: 'summary_large_image'
-})
+});
 </script>
 
 <template>

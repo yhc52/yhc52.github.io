@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { Fraction } from '~/Fraction'
-import { Matrix } from '~/Matrix'
+import { Fraction } from '~/Fraction';
+import { Matrix } from '~/Matrix';
 import {
   ColumnAddKColumnOperation,
   MulColumnOperation,
   RowAddKRowOperation,
   SwapRowOperation
-} from '~/Operations'
-import { OperationStack } from '~/OperationStack'
-import MatrixEditView from '~/components/MatrixEditView.vue'
+} from '~/Operations';
+import { OperationStack } from '~/OperationStack';
+import MatrixEditView from '~/components/MatrixEditView.vue';
 
 const matrix = ref(Matrix.fromArray2D([
   [new Fraction(1), new Fraction(2), new Fraction(3)],
   [new Fraction(4), new Fraction(5), new Fraction(6)],
   [new Fraction(7), new Fraction(8), new Fraction(9)]
-]))
+]));
 const operations = ref(new OperationStack(
   matrix.value as Matrix, [
     new SwapRowOperation(1, 2),
     new MulColumnOperation(1, new Fraction(1, 2)),
     new ColumnAddKColumnOperation(1, 2, new Fraction(3)),
     new RowAddKRowOperation(2, 3, new Fraction(-5))
-  ]))
+  ]));
 
-const isLoaded = ref(false)
+const isLoaded = ref(false);
 onMounted(() => {
-  isLoaded.value = true
-})
+  isLoaded.value = true;
+});
 </script>
 
 <template>

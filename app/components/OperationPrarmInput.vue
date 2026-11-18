@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FractionInput from '~/components/FractionInput.vue'
+import FractionInput from '~/components/FractionInput.vue';
 import {
   ColumnAddKColumnOperation,
   MulColumnOperation,
@@ -8,19 +8,19 @@ import {
   SwapColumnOperation,
   SwapRowOperation,
   type IOperation
-} from '~/Operations'
-import { OperationType, type OperationInputMode } from './InputPrarmTypes'
-import { Fraction } from '~/Fraction'
+} from '~/Operations';
+import { OperationType, type OperationInputMode } from './InputPrarmTypes';
+import { Fraction } from '~/Fraction';
 
 const { mode, type, maxColumnOrRow }
-  = defineProps<{ mode: OperationInputMode, type: OperationType, maxColumnOrRow: number }>()
-const text = computed(() => mode == 'column' ? '行' : '列')
+  = defineProps<{ mode: OperationInputMode; type: OperationType; maxColumnOrRow: number }>();
+const text = computed(() => mode == 'column' ? '行' : '列');
 
-const emit = defineEmits<{ close: [IOperation | null] }>()
+const emit = defineEmits<{ close: [IOperation | null] }>();
 
-const a = ref(1)
-const b = ref(1)
-const k = ref(new Fraction(1))
+const a = ref(1);
+const b = ref(1);
+const k = ref(new Fraction(1));
 </script>
 
 <template>

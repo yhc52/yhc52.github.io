@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DropdownMenuItem } from '@nuxt/ui'
+import type { DropdownMenuItem } from '@nuxt/ui';
 
 const items: DropdownMenuItem[] = [{
   label: 'Starter',
@@ -34,7 +34,7 @@ const items: DropdownMenuItem[] = [{
 }, {
   label: 'Calendar',
   to: 'https://calendar-template.nuxt.dev/'
-}]
+}];
 </script>
 
 <template>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import FractionInput from '~/components/FractionInput.vue'
-import type { Matrix } from '~/Matrix'
+import FractionInput from '~/components/FractionInput.vue';
+import type { Matrix } from '~/Matrix';
 
-const matrix = defineModel<Matrix>()
+const matrix = defineModel<Matrix>();
 </script>
 
 <template>
