@@ -8,12 +8,12 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true
   },
-  
-  ui:{
-    fonts:false
-  },
 
   css: ['~/assets/css/main.css'],
+
+  ui: {
+    fonts: false
+  },
 
   routeRules: {
     '/': { prerender: true }
@@ -25,7 +25,8 @@ export default defineNuxtConfig({
     config: {
       stylistic: {
         commaDangle: 'never',
-        braceStyle: '1tbs'
+        braceStyle: '1tbs',
+        semi: true
       }
     }
   }

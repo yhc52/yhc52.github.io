@@ -1,31 +1,30 @@
 <script lang="ts" setup>
 import 'katex/dist/katex.css'
-import katex from 'katex';
-import { Span } from 'katex/src/domTree.js';
+import katex from 'katex'
 
-var container = useTemplateRef('container')
-const{latex = ''} = defineProps<{latex:string}>();
-var isLoaded = false;
+const container = useTemplateRef('container')
+const { latex } = defineProps<{ latex: string }>()
+let isLoaded = false
 
-onMounted(()=>{
+onMounted(() => {
   katex.render(latex, container.value!, {
-      throwOnError: false,
-      displayMode: true
-    });
-  isLoaded = true;
-  });
+    throwOnError: false,
+    displayMode: true
+  })
+  isLoaded = true
+})
 watch<string>(
-  ()=>latex,
-  (newLatex)=>{
+  () => latex,
+  (newLatex) => {
     if (isLoaded) {
       katex.render(newLatex, container.value!, {
-          throwOnError: false,
-          displayMode: true
-        });
+        throwOnError: false,
+        displayMode: true
+      })
     }
-  });
+  })
 </script>
 
 <template>
-  <div ref="container"/>
+  <div ref="container" />
 </template>
