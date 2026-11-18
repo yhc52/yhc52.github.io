@@ -112,7 +112,8 @@ const k = ref(new Fraction(1));
 
       <div
         v-else
-        class="flex flex-col gap-[16px] items-center">
+        class="flex flex-col gap-[16px] items-center"
+      >
         <UFieldGroup class="self-center">
           <UBadge
             color="neutral"

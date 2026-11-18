@@ -30,7 +30,8 @@ useSeoMeta({
       <template #left>
         <NuxtLink
           to="/"
-          class="focus-visible:outline-3 outline-primary/25 rounded-md p-1 -ms-1">
+          class="focus-visible:outline-3 outline-primary/25 rounded-md p-1 -ms-1"
+        >
           <AppLogo class="w-auto h-6 shrink-0" />
         </NuxtLink>
 
@@ -46,7 +47,8 @@ useSeoMeta({
           icon="i-simple-icons-github"
           aria-label="GitHub"
           color="neutral"
-          variant="ghost" />
+          variant="ghost"
+        />
       </template>
     </UHeader>
 
