@@ -17,12 +17,9 @@ var operations = ref(new OperationStack(
         new ColumnAddKColumnOperation(1, 2, new Fraction(3)),
         new RowAddKRowOperation(2, 3, new Fraction(-5))
     ]));
-var t = ref(()=>operations.value.getTransformationLatex());
 
 var isLoaded = ref(false);
-onMounted(()=>{
-  isLoaded.value = true;
-  });
+onMounted(()=>{ isLoaded.value = true });
 </script>
 
 <template>
