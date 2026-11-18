@@ -42,13 +42,13 @@ const k = ref(new Fraction(1));
         </UFieldGroup>
         <UFieldGroup class="self-center">
           <UBadge color="neutral" variant="outline" size="lg" label="乘数：" />
-          <FractionInput v-model="k" class="w-30"/>
+          <FractionInput v-model="k as Fraction" class="w-30"/>
         </UFieldGroup>
         <UButton label="确定" @click="() => {
           if (mode == 'column')
-            emit('close', new MulColumnOperation(a, k))
+            emit('close', new MulColumnOperation(a, k as Fraction))
           else
-            emit('close', new MulRowOperation(a, k))
+            emit('close', new MulRowOperation(a, k as Fraction))
           }" />
       </div>
 
@@ -63,13 +63,13 @@ const k = ref(new Fraction(1));
         </UFieldGroup>
         <UFieldGroup class="self-center">
           <UBadge color="neutral" variant="outline" size="lg" label="乘数：" />
-          <FractionInput v-model="k" class="w-30"/>
+          <FractionInput v-model="k as Fraction" class="w-30"/>
         </UFieldGroup>
         <UButton label="确定" @click="() => {
           if (mode == 'column')
-            emit('close', new ColumnAddKColumnOperation(a, b, k))
+            emit('close', new ColumnAddKColumnOperation(a, b, k as Fraction))
           else
-            emit('close', new RowAddKRowOperation(a, b, k))
+            emit('close', new RowAddKRowOperation(a, b, k as Fraction))
           }" />
       </div>
     </template>

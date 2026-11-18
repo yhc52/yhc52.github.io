@@ -11,8 +11,8 @@ useHead({
   }
 })
 
-const title = '矩阵初等变换检查器'
-const description = '高效、便捷、美观的矩阵初等变换检查器'
+const title = 'yhc52的个人网站'
+const description = '数学工具，以后还有更多。。。'
 
 useSeoMeta({
   title,
@@ -30,8 +30,7 @@ useSeoMeta({
       <template #left>
         <NuxtLink
           to="/"
-          class="focus-visible:outline-3 outline-primary/25 rounded-md p-1 -ms-1"
-        >
+          class="focus-visible:outline-3 outline-primary/25 rounded-md p-1 -ms-1">
           <AppLogo class="w-auto h-6 shrink-0" />
         </NuxtLink>
 
@@ -42,13 +41,12 @@ useSeoMeta({
         <UColorModeButton />
 
         <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
+          to="https://github.com/yhc52/yhc52.github.io/"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
           color="neutral"
-          variant="ghost"
-        />
+          variant="ghost" />
       </template>
     </UHeader>
 
@@ -61,13 +59,13 @@ useSeoMeta({
     <UFooter>
       <template #left>
         <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+          Built with Nuxt UI • © 2026 yhc52
         </p>
       </template>
 
       <template #right>
         <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
+          to="https://github.com/yhc52/yhc52.github.io/"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"

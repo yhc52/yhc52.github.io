@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import 'katex/dist/katex.css'
 import katex from 'katex';
+import { Span } from 'katex/src/domTree.js';
 
 var container = useTemplateRef('container')
 const{latex = ''} = defineProps<{latex:string}>();

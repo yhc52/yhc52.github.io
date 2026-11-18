@@ -43,9 +43,15 @@ export class SwapRowOperation implements IOperation
 }
 
 function toParenthesisStr(fraction: Fraction) {
+    if (fraction.numerator == 1 && fraction.denominator != 1)
+        if (fraction.numerator < 0)
+            return `\\times (${fraction.denominator})`;
+        else 
+            return `\\times ${fraction.denominator}`;
+
     if (fraction.numerator < 0)
-        return `(${fraction.toLatex()})`;
-    return fraction.toLatex();
+        return `\\times (${fraction.toLatex()})`;
+    return `\\times ${fraction.toLatex()}`;
 }
 
 export class MulColumnOperation implements IOperation
@@ -62,7 +68,7 @@ export class MulColumnOperation implements IOperation
         return matrix.columnMulK(this.column, this.scale);
     }
     getOperationLatex(): string {
-        return `\\xrightarrow{c_{${this.column}}\\times ${toParenthesisStr(this.scale)}}`
+        return `\\xrightarrow{c_{${this.column}} ${toParenthesisStr(this.scale)}}`
     }
 }
 export class MulRowOperation implements IOperation
@@ -79,7 +85,7 @@ export class MulRowOperation implements IOperation
         return matrix.rowMulK(this.row, this.scale);
     }
     getOperationLatex(): string {
-        return `\\xrightarrow{r_{${this.row}}\\times ${toParenthesisStr(this.scale)}}`
+        return `\\xrightarrow{r_{${this.row}} ${toParenthesisStr(this.scale)}}`
     }
 }
 

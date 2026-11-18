@@ -11,19 +11,25 @@ var matrix = ref(Matrix.fromArray2D([
     [new Fraction(7), new Fraction(8), new Fraction(9)]
 ]));
 var operations = ref(new OperationStack(
-    matrix.value, [
+    matrix.value as Matrix, [
         new SwapRowOperation(1, 2), 
         new MulColumnOperation(1, new Fraction(1, 2)),
         new ColumnAddKColumnOperation(1, 2, new Fraction(3)),
         new RowAddKRowOperation(2, 3, new Fraction(-5))
     ]));
 var t = ref(()=>operations.value.getTransformationLatex());
+
+var isLoaded = ref(false);
+onMounted(()=>{
+  isLoaded.value = true;
+  });
 </script>
 
 <template>
     <div class="flex flex-col min-h-[calc(100vh-var(--ui-header-height))] gap-y-[24px] p-[24px] pb-[48px]">
         <div class="flex-1 border-2 border-default rounded-md p-[24px] flex flex-wrap items-center">
             <LatexView v-for="value in operations.getTransformationLatex()" :latex="value"/>
+            <span v-if="!isLoaded" calss="text-default">矩阵渲染中。。。</Span>
         </div>
         <div class="flex flex-col lg:flex-row flex-0 self-center gap-[16px] items-center">
             <div class="flex flex-col gap-y-[16px]">
@@ -44,7 +50,7 @@ var t = ref(()=>operations.value.getTransformationLatex());
             </div>
             <div class="flex flex-col">
                 <span class="text-default self-center">编辑初始矩阵：</span>
-                <MatrixEditView v-model="matrix"/>
+                <MatrixEditView v-model="matrix as Matrix"/>
             </div>
             <div class="flex flex-col gap-y-[8px]">
                 <AddOperationControl mode="column" 
