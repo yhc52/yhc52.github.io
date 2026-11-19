@@ -5,7 +5,7 @@
       description="数学工具，以后还会有更多。。。"
       :links="[{
         label: '矩阵初等变换检查器',
-        to: 'matrix-elementary-transformation-checker',
+        to: 'math-tools/matrix-elementary-transformation-checker',
         trailingIcon: 'i-lucide-arrow-right',
         size: 'xl'
       }, {
@@ -27,12 +27,12 @@
         icon: 'i-lucide-rocket',
         title: '矩阵初等变换检查器',
         description: '高效、便捷、美观的矩阵初等变换检查器',
-        to: 'matrix-elementary-transformation-checker'
+        to: 'math-tools/matrix-elementary-transformation-checker'
       }, {
         icon: 'i-lucide-palette',
         title: '行列式初等变换检查器',
         description: '高效、便捷、美观的行列式初等变换检查器',
-        to: 'determinant-elementary-transformation-checker'
+        to: 'math-tools/determinant-elementary-transformation-checker'
       }, {
         icon: 'i-lucide-zap',
         title: 'Lightning fast',
