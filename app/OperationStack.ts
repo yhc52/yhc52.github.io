@@ -1,16 +1,17 @@
+import type { Determinant } from './Determinant';
 import type { Matrix } from './Matrix';
 import type { IOperation } from './Operations';
 
-export class OperationStack {
-  public matrix: Matrix;
-  public operations: IOperation[];
+export class OperationStack<T extends Matrix | Determinant> {
+  public matrix: T;
+  public operations: IOperation<T>[];
 
-  constructor(matrix: Matrix, operations: IOperation[] = []) {
+  constructor(matrix: T, operations: IOperation<T>[] = []) {
     this.matrix = matrix;
     this.operations = operations;
   }
 
-  public pushOperation(operation: IOperation) {
+  public pushOperation(operation: IOperation<T>) {
     this.operations.push(operation);
   }
 
@@ -18,7 +19,7 @@ export class OperationStack {
     this.operations.pop();
   }
 
-  public getTransformedMatrix(): Matrix {
+  public getTransformedMatrix(): T {
     let matrix = this.matrix;
     this.operations.forEach((op) => {
       matrix = op.transform(matrix);

@@ -30,8 +30,9 @@
         to: 'matrix-elementary-transformation-checker'
       }, {
         icon: 'i-lucide-palette',
-        title: 'Beautiful by default',
-        description: 'Leveraging Nuxt UI\'s design system with automatic dark mode, consistent spacing, and polished components that look great out of the box.'
+        title: '行列式初等变换检查器',
+        description: '高效、便捷、美观的行列式初等变换检查器',
+        to: 'determinant-elementary-transformation-checker'
       }, {
         icon: 'i-lucide-zap',
         title: 'Lightning fast',

@@ -1,12 +1,13 @@
+import type { Determinant } from './Determinant';
 import type { Fraction } from './Fraction';
 import type { Matrix } from './Matrix';
 
-export interface IOperation {
-  transform(matrix: Matrix): Matrix;
+export interface IOperation<T extends Matrix | Determinant> {
+  transform(matrix: T): T;
   getOperationLatex(): string;
 }
 
-export class SwapColumnOperation implements IOperation {
+export class SwapColumnOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public column1: number;
   public column2: number;
 
@@ -15,8 +16,8 @@ export class SwapColumnOperation implements IOperation {
     this.column2 = column2;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.swapColumn(this.column1, this.column2);
+  transform(matrix: T): T {
+    return matrix.swapColumn(this.column1, this.column2) as T;
   }
 
   getOperationLatex(): string {
@@ -24,7 +25,7 @@ export class SwapColumnOperation implements IOperation {
   }
 }
 
-export class SwapRowOperation implements IOperation {
+export class SwapRowOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public row1: number;
   public row2: number;
 
@@ -33,8 +34,8 @@ export class SwapRowOperation implements IOperation {
     this.row2 = row2;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.swapRow(this.row1, this.row2);
+  transform(matrix: T): T {
+    return matrix.swapRow(this.row1, this.row2) as T;
   }
 
   getOperationLatex(): string {
@@ -45,16 +46,16 @@ export class SwapRowOperation implements IOperation {
 function toParenthesisStr(fraction: Fraction) {
   if (fraction.numerator == 1 && fraction.denominator != 1)
     if (fraction.numerator < 0)
-      return `\\times (${fraction.denominator})`;
+      return `\\div (${fraction.denominator})`;
     else
-      return `\\times ${fraction.denominator}`;
+      return `\\div ${fraction.denominator}`;
 
   if (fraction.numerator < 0)
     return `\\times (${fraction.toLatex()})`;
   return `\\times ${fraction.toLatex()}`;
 }
 
-export class MulColumnOperation implements IOperation {
+export class MulColumnOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public column: number;
   public scale: Fraction;
 
@@ -63,8 +64,8 @@ export class MulColumnOperation implements IOperation {
     this.scale = scale;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.columnMulK(this.column, this.scale);
+  transform(matrix: T): T {
+    return matrix.columnMulK(this.column, this.scale) as T;
   }
 
   getOperationLatex(): string {
@@ -72,7 +73,7 @@ export class MulColumnOperation implements IOperation {
   }
 }
 
-export class MulRowOperation implements IOperation {
+export class MulRowOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public row: number;
   public scale: Fraction;
 
@@ -81,8 +82,8 @@ export class MulRowOperation implements IOperation {
     this.scale = scale;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.rowMulK(this.row, this.scale);
+  transform(matrix: T): T {
+    return matrix.rowMulK(this.row, this.scale) as T;
   }
 
   getOperationLatex(): string {
@@ -95,7 +96,7 @@ function toSignedStr(fraction: Fraction) {
     return fraction.toLatex();
   return '+' + fraction.toLatex();
 }
-export class ColumnAddKColumnOperation implements IOperation {
+export class ColumnAddKColumnOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public a: number;
   public b: number;
   public scale: Fraction;
@@ -106,8 +107,8 @@ export class ColumnAddKColumnOperation implements IOperation {
     this.scale = scale;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.columnAddKColumn(this.a, this.scale, this.b);
+  transform(matrix: T): T {
+    return matrix.columnAddKColumn(this.a, this.scale, this.b) as T;
   }
 
   getOperationLatex(): string {
@@ -115,7 +116,7 @@ export class ColumnAddKColumnOperation implements IOperation {
   }
 }
 
-export class RowAddKRowOperation implements IOperation {
+export class RowAddKRowOperation<T extends Matrix | Determinant> implements IOperation<T> {
   public a: number;
   public b: number;
   public scale: Fraction;
@@ -126,8 +127,8 @@ export class RowAddKRowOperation implements IOperation {
     this.scale = scale;
   }
 
-  transform(matrix: Matrix): Matrix {
-    return matrix.rowAddKRow(this.a, this.scale, this.b);
+  transform(matrix: T): T {
+    return matrix.rowAddKRow(this.a, this.scale, this.b) as T;
   }
 
   getOperationLatex(): string {

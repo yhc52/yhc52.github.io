@@ -150,7 +150,7 @@ export class Matrix {
 
   public rowAddKRow(a: number, k: Fraction, b: number): Matrix {
     const newMat = this.clone();
-    for (let i = 0; i < this._rowCount; i++) {
+    for (let i = 0; i < this._columnCount; i++) {
       const temp = k.clone();
       temp.mul(newMat._data[i * this._rowCount + b - 1]!);
       newMat._data[i * this._rowCount + a - 1]!.add(temp);

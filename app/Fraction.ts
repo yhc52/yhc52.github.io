@@ -80,12 +80,19 @@ export class Fraction {
   }
 
   private reduce() {
+    if (this._denominator == 0)
+      throw Error('a fraction\'s denominator can not be 0!');
+
     if (this._denominator < 0) {
       this._numerator = -this._numerator;
       this._denominator = -this._denominator;
     }
-    if (this._denominator == 0 || this._numerator == 0)
+
+    if (this._numerator == 0) {
+      this._denominator = 1;
       return;
+    }
+
     const gcd = this.gcd(Math.abs(this._numerator), this._denominator);
     this._numerator /= gcd;
     this._denominator /= gcd;
