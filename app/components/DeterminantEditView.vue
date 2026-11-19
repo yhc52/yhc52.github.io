@@ -15,7 +15,6 @@ const determinant = defineModel<Determinant>();
     >
       <FractionInput
         v-for="(item, index) in determinant?.asArray()"
-        :key="index"
         class="w-16"
         :model-value="determinant!.asArray()[index]"
         @update:model-value="(val) => determinant!.asArray()[index] = val!"

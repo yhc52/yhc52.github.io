@@ -15,7 +15,6 @@ const matrix = defineModel<Matrix>();
     >
       <FractionInput
         v-for="(item, index) in matrix?.asArray()"
-        :key="index"
         class="w-16"
         :model-value="matrix!.asArray()[index]"
         @update:model-value="(val) => matrix!.asArray()[index] = val!"
