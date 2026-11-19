@@ -29,7 +29,7 @@ const items = ref<NavigationMenuItem[]>([
   {
     label: '个人博客',
     icon: 'i-lucide-book-open',
-    to: '/blogs',
+    // to: '/blogs',
     children: [
       {
         label: 'Introduction',
@@ -41,7 +41,7 @@ const items = ref<NavigationMenuItem[]>([
   {
     label: '数学工具',
     icon: 'i-lucide-database',
-    to: '/math-tools',
+    // to: '/math-tools',
     children: [
       {
         label: '矩阵初等变换检查器',
