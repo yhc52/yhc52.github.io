@@ -14,10 +14,9 @@ const matrix = defineModel<Matrix>();
                 gridTemplateRows: '1fr '.repeat(matrix?.columnCount ?? 0) }"
     >
       <FractionInput
-        v-for="(item, index) in matrix?.asArray()"
+        v-for="(_, index) in matrix?.asArray()"
         class="w-16"
-        :model-value="matrix!.asArray()[index]"
-        @update:model-value="(val) => matrix!.asArray()[index] = val!"
+        v-model="matrix!.asArray()[index]"
       />
     </div>
     <span class="text-default">)</span>

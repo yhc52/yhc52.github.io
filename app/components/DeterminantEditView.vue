@@ -14,10 +14,9 @@ const determinant = defineModel<Determinant>();
                 gridTemplateRows: '1fr '.repeat(determinant?.order ?? 0) }"
     >
       <FractionInput
-        v-for="(item, index) in determinant?.asArray()"
+        v-for="(_, index) in determinant?.asArray()"
         class="w-16"
-        :model-value="determinant!.asArray()[index]"
-        @update:model-value="(val) => determinant!.asArray()[index] = val!"
+        v-model="determinant!.asArray()[index]"
       />
     </div>
     <span class="text-default">)</span>
