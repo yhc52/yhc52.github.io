@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Matrix | Determinant">
 import FractionInput from '~/components/FractionInput.vue';
 import {
   ColumnAddKColumnOperation,
@@ -11,12 +11,14 @@ import {
 } from '~/Operations';
 import { OperationType, type OperationInputMode } from './InputPrarmTypes';
 import { Fraction } from '~/Fraction';
+import type { Matrix } from '~/Matrix';
+import type { Determinant } from '~/Determinant';
 
 const { mode, type, maxColumnOrRow }
   = defineProps<{ mode: OperationInputMode; type: OperationType; maxColumnOrRow: number }>();
 const text = computed(() => mode == 'column' ? '行' : '列');
 
-const emit = defineEmits<{ close: [IOperation | null] }>();
+const emit = defineEmits<{ close: [IOperation<T> | null] }>();
 
 const a = ref(1);
 const b = ref(1);
@@ -94,6 +96,7 @@ const k = ref(new Fraction(1));
             size="lg"
             label="乘数："
           />
+          <!-- @vue-expect-error -->
           <FractionInput
             v-model="k"
             class="w-30"
@@ -149,6 +152,7 @@ const k = ref(new Fraction(1));
             size="lg"
             label="乘数："
           />
+          <!-- @vue-expect-error -->
           <FractionInput
             v-model="k"
             class="w-30"

@@ -14,9 +14,6 @@ export default withNuxt(
           ['^v-bind:ui$', [{ match: 'objectValues' }]]
         ]
       }
-    },
-    rules: {
-      'vue/require-v-for-key': 'off'
     }
   }
 );

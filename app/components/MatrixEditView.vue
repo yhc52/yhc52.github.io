@@ -13,10 +13,11 @@ const matrix = defineModel<Matrix>();
       :style="{ gridTemplateColumns: '1fr '.repeat(matrix?.rowCount ?? 0),
                 gridTemplateRows: '1fr '.repeat(matrix?.columnCount ?? 0) }"
     >
+      <!-- eslint-disable-next-line vue/valid-v-for -->
       <FractionInput
         v-for="(_, index) in matrix?.asArray()"
-        class="w-16"
         v-model="matrix!.asArray()[index]"
+        class="w-16"
       />
     </div>
     <span class="text-default">)</span>

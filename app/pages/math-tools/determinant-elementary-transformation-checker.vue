@@ -16,7 +16,7 @@ const determinant = ref(Determinant.fromArray2D([
   [new Fraction(7), new Fraction(8), new Fraction(9)]
 ]));
 const operations = ref(new OperationStack<Determinant>(
-  determinant as Determinant, [
+  determinant.value as Determinant, [
     new SwapRowOperation(1, 2),
     new MulColumnOperation(1, new Fraction(1, 2)),
     new ColumnAddKColumnOperation(1, 2, new Fraction(3)),
@@ -63,14 +63,17 @@ onMounted(() => {
       </div>
       <div class="flex flex-col">
         <span class="text-default self-center">编辑初始行列式：</span>
+        <!-- @vue-expect-error -->
         <DeterminantEditView v-model="determinant" />
       </div>
       <div class="flex flex-col gap-y-[8px]">
+        <!-- @vue-generic {Determinant} -->
         <AddOperationControl
           mode="column"
           :max-column-or-row="determinant.order"
           @click="(op) => operations.pushOperation(op)"
         />
+        <!-- @vue-generic {Determinant} -->
         <AddOperationControl
           mode="row"
           :max-column-or-row="determinant.order"

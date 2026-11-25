@@ -1,9 +1,11 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends Matrix | Determinant">
 import type { IOperation } from '~/Operations.ts';
 import { OperationType, type OperationInputMode } from './InputPrarmTypes.ts';
 import OperationPrarmInput from './OperationPrarmInput.vue';
+import type { Matrix } from '~/Matrix.ts';
+import type { Determinant } from '~/Determinant.ts';
 
-const click = defineEmits<{ (e: 'click', type: IOperation): void }>();
+const click = defineEmits<{ (e: 'click', type: IOperation<T>): void }>();
 
 const { mode, maxColumnOrRow }
   = defineProps<{ mode: OperationInputMode; maxColumnOrRow: number }>();
@@ -27,7 +29,7 @@ const operations = ref<{ label: string; id: OperationType }[]>([
 const operationValue = ref<OperationType>();
 
 const overlay = useOverlay();
-const modal = overlay.create(OperationPrarmInput);
+const modal = overlay.create(OperationPrarmInput<T>);
 
 async function open() {
   const instance

@@ -77,14 +77,17 @@ onMounted(() => {
       </div>
       <div class="flex flex-col">
         <span class="text-default self-center">编辑初始矩阵：</span>
+        <!-- @vue-expect-error -->
         <MatrixEditView v-model="matrix" />
       </div>
       <div class="flex flex-col gap-y-[8px]">
+        <!-- @vue-generic {Matrix} -->
         <AddOperationControl
           mode="column"
           :max-column-or-row="matrix.columnCount"
           @click="(op) => operations.pushOperation(op)"
         />
+        <!-- @vue-generic {Matrix} -->
         <AddOperationControl
           mode="row"
           :max-column-or-row="matrix.rowCount"

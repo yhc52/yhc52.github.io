@@ -13,10 +13,11 @@ const determinant = defineModel<Determinant>();
       :style="{ gridTemplateColumns: '1fr '.repeat(determinant?.order ?? 0),
                 gridTemplateRows: '1fr '.repeat(determinant?.order ?? 0) }"
     >
+      <!-- eslint-disable-next-line vue/valid-v-for -->
       <FractionInput
         v-for="(_, index) in determinant?.asArray()"
-        class="w-16"
         v-model="determinant!.asArray()[index]"
+        class="w-16"
       />
     </div>
     <span class="text-default">)</span>
