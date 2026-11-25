@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T extends Matrix | Determinant">
+<script setup lang="ts" generic="T extends IElementaryTransformable<T>">
 import FractionInput from '~/components/FractionInput.vue';
 import {
   ColumnAddKColumnOperation,
@@ -11,8 +11,7 @@ import {
 } from '~/Operations';
 import { OperationType, type OperationInputMode } from './InputPrarmTypes';
 import { Fraction } from '~/Fraction';
-import type { Matrix } from '~/Matrix';
-import type { Determinant } from '~/Determinant';
+import type { IElementaryTransformable } from '~/IElementaryTransformable';
 
 const { mode, type, maxColumnOrRow }
   = defineProps<{ mode: OperationInputMode; type: OperationType; maxColumnOrRow: number }>();

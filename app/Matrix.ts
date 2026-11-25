@@ -1,6 +1,7 @@
 import { Fraction } from './Fraction';
+import type { IElementaryTransformable } from './IElementaryTransformable';
 
-export class Matrix {
+export class Matrix implements IElementaryTransformable<Matrix> {
   private _data: Fraction[];
   private _columnCount: number;
   private _rowCount: number;

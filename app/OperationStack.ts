@@ -1,8 +1,7 @@
-import type { Determinant } from './Determinant';
-import type { Matrix } from './Matrix';
+import type { IElementaryTransformable } from './IElementaryTransformable';
 import type { IOperation } from './Operations';
 
-export class OperationStack<T extends Matrix | Determinant> {
+export class OperationStack<T extends IElementaryTransformable<T>> {
   public matrix: T;
   public operations: IOperation<T>[];
 

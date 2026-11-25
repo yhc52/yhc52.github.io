@@ -1,6 +1,7 @@
 import { Fraction } from './Fraction';
+import type { IElementaryTransformable } from './IElementaryTransformable';
 
-export class Determinant {
+export class Determinant implements IElementaryTransformable<Determinant> {
   private _data: Fraction[];
   private _order: number;
   public k: Fraction;

@@ -1,9 +1,8 @@
-<script setup lang="ts" generic="T extends Matrix | Determinant">
+<script setup lang="ts" generic="T extends IElementaryTransformable<T>">
 import type { IOperation } from '~/Operations.ts';
 import { OperationType, type OperationInputMode } from './InputPrarmTypes.ts';
 import OperationPrarmInput from './OperationPrarmInput.vue';
-import type { Matrix } from '~/Matrix.ts';
-import type { Determinant } from '~/Determinant.ts';
+import type { IElementaryTransformable } from '~/IElementaryTransformable.ts';
 
 const click = defineEmits<{ (e: 'click', type: IOperation<T>): void }>();
 
