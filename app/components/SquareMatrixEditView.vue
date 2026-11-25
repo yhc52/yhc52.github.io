@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import FractionInput from '~/components/FractionInput.vue';
-import type { Determinant } from '~/Determinant';
+import type { SquareMatrix } from '~/SquareMatrix';
 
-const determinant = defineModel<Determinant>();
+const determinant = defineModel<SquareMatrix>();
 </script>
 
 <template>
