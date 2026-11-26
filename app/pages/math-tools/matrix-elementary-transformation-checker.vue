@@ -9,6 +9,7 @@ import {
 } from '~/Operations';
 import { OperationStack } from '~/OperationStack';
 import MatrixEditView from '~/components/MatrixEditView.vue';
+import AddOperationControl from '~/components/AddOperationControl.vue';
 
 const matrix = ref(Matrix.fromArray2D([
   [new Fraction(1), new Fraction(2), new Fraction(3)],

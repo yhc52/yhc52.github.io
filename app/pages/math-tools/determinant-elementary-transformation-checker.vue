@@ -8,7 +8,8 @@ import {
 } from '~/Operations';
 import { OperationStack } from '~/OperationStack';
 import { Determinant } from '~/Determinant';
-import DeterminantEditView from '~/components/SquareMatrixEditView.vue';
+import SquareMatrixEditView from '~/components/SquareMatrixEditView.vue';
+import AddOperationControl from '~/components/AddOperationControl.vue';
 
 const determinant = ref(Determinant.fromArray2D([
   [new Fraction(1), new Fraction(2), new Fraction(3)],
@@ -64,7 +65,7 @@ onMounted(() => {
       <div class="flex flex-col">
         <span class="text-default self-center">编辑初始行列式：</span>
         <!-- @vue-expect-error -->
-        <DeterminantEditView v-model="determinant.inner" />
+        <SquareMatrixEditView v-model="determinant.inner" />
       </div>
       <div class="flex flex-col gap-y-[8px]">
         <!-- @vue-generic {Determinant} -->
