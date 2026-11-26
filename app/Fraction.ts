@@ -26,6 +26,10 @@ export class Fraction {
     this.reduce();
   }
 
+  public equals(other: Fraction): boolean {
+    return this._numerator == other.numerator && this._denominator == other._denominator;
+  }
+
   public clone(): Fraction {
     return new Fraction(this._numerator, this._denominator);
   }
