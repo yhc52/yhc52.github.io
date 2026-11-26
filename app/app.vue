@@ -54,6 +54,12 @@ const items = ref<NavigationMenuItem[]>([
         icon: 'i-lucide-file-text',
         description: '高效、便捷、美观的行列式初等变换检查器',
         to: '/math-tools/determinant-elementary-transformation-checker'
+      },
+      {
+        label: '初等变换法求矩阵的逆检查器',
+        icon: 'i-lucide-file-text',
+        description: '编不下去了。。。',
+        to: '/math-tools/inverse-matrix-checker'
       }
     ]
   }

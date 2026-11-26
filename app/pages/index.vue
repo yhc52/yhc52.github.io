@@ -35,8 +35,9 @@
         to: 'math-tools/determinant-elementary-transformation-checker'
       }, {
         icon: 'i-lucide-zap',
-        title: 'Lightning fast',
-        description: 'Optimized for performance with SSR/SSG support, automatic code splitting, and edge-ready deployment. Your users will love the speed.'
+        title: '初等变换法求矩阵的逆检查器',
+        description: '编不下去了。。。',
+        to: '/math-tools/inverse-matrix-checker'
       }, {
         icon: 'i-lucide-blocks',
         title: '100+ components included',
