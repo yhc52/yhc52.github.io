@@ -4,8 +4,7 @@ import { SquareMatrixWithIdentity } from '~/SquareMatrixWithIdentity';
 import {
   ColumnAddKColumnOperation,
   MulColumnOperation,
-  RowAddKRowOperation,
-  SwapRowOperation
+  SwapColumnOperation
 } from '~/Operations';
 import { OperationStack } from '~/OperationStack';
 import { SquareMatrix } from '~/SquareMatrix';
@@ -21,10 +20,9 @@ const matrix = ref(SquareMatrixWithIdentity.createWithIdentity(
 ));
 const operations = ref(new OperationStack(
   matrix.value as SquareMatrixWithIdentity, [
-    new SwapRowOperation(1, 2),
+    new SwapColumnOperation(1, 2),
     new MulColumnOperation(1, new Fraction(1, 2)),
-    new ColumnAddKColumnOperation(1, 2, new Fraction(3)),
-    new RowAddKRowOperation(2, 3, new Fraction(-5))
+    new ColumnAddKColumnOperation(1, 2, new Fraction(3))
   ]));
 
 const isLoaded = ref(false);
