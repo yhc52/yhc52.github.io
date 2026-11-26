@@ -11,12 +11,6 @@ export class Determinant implements IElementaryTransformable<Determinant> {
     this.k = k;
   }
 
-  public static fromArray(
-    data: Fraction[], order: number, k: Fraction = new Fraction(1)
-  ): Determinant {
-    return new Determinant(new SquareMatrix(data, order), k);
-  }
-
   public static fromArray2D(data: Fraction[][], k: Fraction = new Fraction(1)): Determinant {
     return new Determinant(SquareMatrix.fromArray2D(data), k);
   }
@@ -27,18 +21,6 @@ export class Determinant implements IElementaryTransformable<Determinant> {
 
   public clone(): Determinant {
     return new Determinant(this.inner.clone(), this.k);
-  }
-
-  public get(column: number, row: number): Fraction {
-    return this.inner.get(column, row);
-  }
-
-  public set(column: number, row: number, value: Fraction) {
-    this.inner.set(column, row, value);
-  }
-
-  public asArray(): Fraction[] {
-    return this.inner.asArray();
   }
 
   public get order(): number {

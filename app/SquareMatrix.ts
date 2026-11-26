@@ -1,7 +1,7 @@
 import { Fraction } from './Fraction';
-import type { IElementaryTransformable } from './IElementaryTransformable';
+import type { IMatrix } from './IMatrix';
 
-export class SquareMatrix implements IElementaryTransformable<SquareMatrix> {
+export class SquareMatrix implements IMatrix<SquareMatrix> {
   private _data: Fraction[];
   private _order: number;
 
@@ -12,6 +12,37 @@ export class SquareMatrix implements IElementaryTransformable<SquareMatrix> {
 
   public static fromArray2D(data: Fraction[][]): SquareMatrix {
     return new SquareMatrix(data.flat(), data.length);
+  }
+
+  public static createIdentity(order: number): SquareMatrix {
+    const data: Fraction[] = [];
+    for (let c = 0; c < order; c++) {
+      let r = 0;
+      for (; r < c; r++)
+        data.push(new Fraction(0));
+      data.push(new Fraction(1));
+      for (r++; r < order; r++)
+        data.push(new Fraction(0));
+    }
+    return new SquareMatrix(data, order);
+  }
+
+  public isIdentity(): boolean {
+    let index = 0;
+    const frac0 = new Fraction(0);
+    const frac1 = new Fraction(1);
+    for (let c = 0; c < this._order; c++) {
+      let r = 0;
+      for (; r < c; r++)
+        if (!this._data[index++]!.equals(frac0))
+          return false;
+      if (!this._data[index++]!.equals(frac1))
+        return false;
+      for (r++; r < this._order; r++)
+        if (!this._data[index++]!.equals(frac0))
+          return false;
+    }
+    return true;
   }
 
   public static createEmpty(): SquareMatrix {
